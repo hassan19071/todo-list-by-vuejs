@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list by vue js</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="header">
+        <div class="container">
+            <div class="content">
+                <div class="logo mx-2">
+                    <h1>Todo</h1>
+                </div>
+                <form action="#" class="row mx-2">
+                    <div class="col position-relative p-0">
+                        <input type="text" placeholder="Type Todo Name" v-model="inputVal" @input="checkDis()">
+                        <button class="position-absolute" @click="addTodo" :disabled="inputFul"> Add Todo </button>
+                    </div>
+                </form>
+                <div class="results row my-4 mx-2">
+                    <ul class="list-unstyled p-0 my-0">
+                        <li class="d-flex justify-content-between align-items-center" v-for="(todo,ind) in todosFil">
+                            <span class="d-flex align-items-center"> <input type="checkbox" v-model="todo.complated" class="me-2"><label :style="todo.complated? 'color: rgb(10, 72, 129);text-decoration:line-through':'color: rgb(160, 158, 158);text-decoration:none'">{{todo.title}}</label></span>
+                            <img src="imgs/icon-cross.svg" alt="" @click="removeOneTodo(ind)">
+                        </li>
+                    </ul>
+                </div>
+                <div class="info row mx-2">
+                        <div class="col p-0">
+                            <p style="cursor:default;user-select: all;">{{numOfTodos}} : Items</p>
+                        </div>
+                        <div class="col p-0">
+                            <div class="types d-flex align-items-center justify-content-center">
+                                <p :class="visiable == 'allTodos' ? 'active':''" @click="visiable = 'allTodos'">All</p>
+                                <p class="mx-3" @click="visiable = 'active'" :class="visiable == 'active' ? 'active':''">Active</p>
+                                <p @click="visiable = 'complated'" :class="visiable == 'complated' ? 'active':''">Complated</p>
+                            </div>
+                        </div>
+                        <div class="col text-end p-0">
+                            <p class="d-inline" @click="clearAll()">Clear All</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script>
+
+        var filters = {
+            allTodos : function(todos){
+                return todos;
+            },
+            active : function(todos){
+                return todos.filter(function(todo){
+                    return !todo.complated;
+                })
+            },
+            complated : function(todos){
+               return todos.filter(function(todo){
+                    return todo.complated;
+                })
+            },
+        };
+           new Vue({
+               el : ".header",
+               data:{
+                   inputVal : null,
+                   todos : [],
+                   inputFul: true,
+                   numOfTodos : 0,
+                   complated:true,
+                   visiable : "allTodos",
+               },
+               methods:{
+                   addTodo : function(){
+                       this.inputVal? this.todos.push({title : this.inputVal , complated : false}):false;
+                       this.numOfTodos += 1;
+                       this.inputVal = null;
+                       this.inputFul = true;
+                       localStorage.setItem("save",this.todos.join(""))
+                   },
+                   checkDis : function(){
+                       this.inputVal.trim() ? this.inputFul = false : this.inputFul = true;
+                   },
+                   clearAll : function(){
+                       this.todos = [];
+                       this.numOfTodos = 0;
+                   },
+                   removeOneTodo : function(index){
+                        this.todos.splice(index,1);
+                        this.numOfTodos -= 1;
+                   },
+                },
+                computed:{
+                  todosFil : function(){
+                      return filters[this.visiable](this.todos);
+                  }
+               },
+               created(){
+                   this.todos = localStorage.getItem("save").spalit(",");
+               }
+           })
+    </script>
+</body>
+</html>

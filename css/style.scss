@@ -1,0 +1,107 @@
+body{
+    background-color: rgb(15, 14, 14);
+    min-height: 90vh;
+    overflow-x:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.header{
+    .content{
+        width: 100%;
+        margin: 20px auto;
+        @media (min-width:780px) {
+            width: 80%;
+        }
+        @media (min-width:991px) {
+            width: 60%;
+        }
+        .line{
+            color: rgb(38, 144, 243) !important;
+            text-decoration: line-through;
+        }
+        .logo{
+            h1{
+                font-size: 40px;
+                color: #fff;
+                font-weight: 700;
+                padding: 10px 0;
+            }
+        }
+        form{
+            input{
+                width: 100%;
+                border: none;
+                outline: none;
+                padding: 10px 20px;
+                &::placeholder{
+                    color: #888;
+                }
+            }
+            button{
+                border: none;
+                outline: none;
+                background-color: rgb(10, 72, 129);
+                color: #fff;
+                right: 0;
+                padding:10px 20px;
+                border-radius: 0 !important;
+                cursor: pointer;
+                &:disabled{
+                    cursor: not-allowed !important;
+                    opacity: .66;
+                }
+            }
+        }
+        .results{
+            ul{
+                background-color: rgb(92, 92, 92);
+                
+                li{
+                    padding:15px 20px !important;
+                    &:not(:first-of-type){
+                        border-top: 1px solid rgb(56, 56, 56);
+                    }
+                    span{
+                        color: rgb(160, 158, 158);
+                        font-size: 17px;
+                        cursor: pointer;
+                        user-select: none;
+                        input{
+                            appearance: none;
+                            width: 20px;
+                            height: 20px;
+                            background-color:transparent;
+                            border-radius: 50%;
+                            border: 1px solid rgb(10, 72, 129);
+                            opacity: .1;
+                            &:checked {
+                                opacity: .9;
+                                background-color: rgb(10, 72, 129);
+                            }
+                        }
+                    }
+                    img{
+                        cursor: pointer;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+        .info{
+            background-color: #000;
+            padding: 10px 20px;
+            .types{
+                .active{
+                    color: rgb(10, 72, 129);
+                }
+            }
+            p{
+                margin: 0;
+                color: rgb(97, 96, 96);
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+    }
+}
