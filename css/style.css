@@ -1,5 +1,5 @@
 body {
-  background-color: #0f0e0e;
+  background-color: rgb(15, 14, 14);
   min-height: 90vh;
   overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
@@ -9,84 +9,66 @@ body {
   width: 100%;
   margin: 20px auto;
 }
-
 @media (min-width: 780px) {
   .header .content {
     width: 80%;
   }
 }
-
 @media (min-width: 991px) {
   .header .content {
     width: 60%;
   }
 }
-
 .header .content .line {
-  color: #2690f3 !important;
+  color: rgb(38, 144, 243) !important;
   text-decoration: line-through;
 }
-
 .header .content .logo h1 {
   font-size: 40px;
   color: #fff;
   font-weight: 700;
   padding: 10px 0;
 }
-
 .header .content form input {
   width: 100%;
   border: none;
   outline: none;
   padding: 10px 20px;
 }
-
-.header .content form input::-webkit-input-placeholder {
+.header .content form input::-moz-placeholder {
   color: #888;
 }
-
 .header .content form input:-ms-input-placeholder {
   color: #888;
 }
-
-.header .content form input::-ms-input-placeholder {
-  color: #888;
-}
-
 .header .content form input::placeholder {
   color: #888;
 }
-
 .header .content form button {
   border: none;
   outline: none;
-  background-color: #0a4881;
+  background-color: rgb(10, 72, 129);
   color: #fff;
   right: 0;
   padding: 10px 20px;
   border-radius: 0 !important;
   cursor: pointer;
 }
-
 .header .content form button:disabled {
   cursor: not-allowed !important;
-  opacity: .66;
+  opacity: 0.66;
 }
-
 .header .content .results ul {
-  background-color: #5c5c5c;
+  background-color: rgb(92, 92, 92);
 }
-
 .header .content .results ul li {
   padding: 15px 20px !important;
 }
-
 .header .content .results ul li:not(:first-of-type) {
-  border-top: 1px solid #383838;
+  border-top: 1px solid rgb(56, 56, 56);
 }
-
 .header .content .results ul li span {
-  color: #a09e9e;
+  color: rgb(160, 158, 158);
   font-size: 17px;
   cursor: pointer;
   -webkit-user-select: none;
@@ -94,46 +76,40 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-
 .header .content .results ul li span input {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  cursor: pointer;
   width: 20px;
   height: 20px;
-  background-color: transparent;
+  background-color: rgb(255, 255, 255);
   border-radius: 50%;
-  border: 1px solid #0a4881;
-  opacity: .1;
+  border: 1px solid rgb(10, 72, 129);
+  opacity: 0.5;
 }
-
 .header .content .results ul li span input:checked {
-  opacity: .9;
-  background-color: #0a4881;
+  opacity: 0.9;
+  background-color: rgb(10, 72, 129);
 }
-
 .header .content .results ul li img {
   cursor: pointer;
   width: 20px;
   height: 20px;
 }
-
 .header .content .info {
   background-color: #000;
   padding: 10px 20px;
 }
-
 .header .content .info .types .active {
-  color: #0a4881;
+  color: rgb(10, 72, 129);
 }
-
 .header .content .info p {
   margin: 0;
-  color: #616060;
+  color: rgb(97, 96, 96);
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

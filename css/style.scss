@@ -68,12 +68,13 @@ body{
                         user-select: none;
                         input{
                             appearance: none;
+                            cursor: pointer;
                             width: 20px;
                             height: 20px;
-                            background-color:transparent;
+                            background-color:rgb(255, 255, 255);
                             border-radius: 50%;
                             border: 1px solid rgb(10, 72, 129);
-                            opacity: .1;
+                            opacity: .5;
                             &:checked {
                                 opacity: .9;
                                 background-color: rgb(10, 72, 129);
